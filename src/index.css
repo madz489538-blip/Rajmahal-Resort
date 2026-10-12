@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+    /* Theme colors: Light */
+    --color-bg: #FBF9F4;
+    --color-surface: #FFFFFF;
+    --color-surface-soft: #F4EFE6;
+    --color-surface-hover: #ECE4D6;
+    --color-border: #E6DDCF;
+    --color-text-main: #18201C;
+    --color-text-muted: #5E6963;
+    --color-primary: #17382B;      /* Deep Forest Green */
+    --color-primary-hover: #11281F;
+    --color-primary-fg: #FAF7F2;
+    --color-accent: #B88E52;       /* Champagne Gold */
+    --color-accent-hover: #9E743A;
+    --color-accent-fg: #FFFFFF;
+    --color-accent-soft: #F9F4EB;
+    --color-card: #FFFFFF;
+  }
+
+  html.dark,
+  .dark {
+    color-scheme: dark;
+
+    /* Theme colors: Dark */
+    --color-bg: #0B120F;          /* Near Black Forest */
+    --color-surface: #121C17;     /* Dark Forest Green Surface */
+    --color-surface-soft: #192620;
+    --color-surface-hover: #22332B;
+    --color-border: #25362E;
+    --color-text-main: #F4EFE8;
+    --color-text-muted: #95A39B;
+    --color-primary: #C59F67;      /* Warm Champagne Accent */
+    --color-primary-hover: #D8B57F;
+    --color-primary-fg: #0D1612;
+    --color-accent: #C59F67;
+    --color-accent-hover: #D8B57F;
+    --color-accent-fg: #0D1612;
+    --color-accent-soft: #1C2720;
+    --color-card: #121C17;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    font-family: var(--font-sans);
+    transition: background-color 0.25s ease, color 0.25s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  input, select, textarea {
+    color: var(--color-text-main);
+    background-color: var(--color-surface-soft);
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+@keyframes slowZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.animate-slow-zoom {
+  animation: slowZoom 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.animate-float-slow {
+  animation: floatSlow 2.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 130, 115, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 130, 115, 0.45);
+}

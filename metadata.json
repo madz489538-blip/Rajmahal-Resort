@@ -1,0 +1,8 @@
+{
+  "name": "Rajmahal Resort & Banquets — Nagaon, Assam",
+  "description": "Concept hospitality demo for Rajmahal Resort & Banquets featuring room reservations, banquet & wedding enquiries, dining, and an admin management dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
